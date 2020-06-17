@@ -1,7 +1,7 @@
 'use strict'
 
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const HeroeSchema = new Schema({
 
@@ -32,6 +32,6 @@ const HeroeSchema = new Schema({
     }
 }, {
     versionKey: false // You should be aware of the outcome after set to false
-});
+})
 
-module.exports = mongoose.model('Heroe', HeroeSchema);
+module.exports = mongoose.model('Heroe', HeroeSchema)
