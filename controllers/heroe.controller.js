@@ -1,5 +1,5 @@
 'use strict'
-
+//prueba git
 const Heroe = require('./../models/heroe')
 
 function GetHeroes(req, res, next) {
