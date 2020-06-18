@@ -1,13 +1,14 @@
 'use strict'
 
 const express = require('express')
+const config = require('./../config')
 const api = express.Router()
 const heroeController = require('./../controllers/heroe.controller')
 const path = require('path')
 const multer = require('multer')
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '/Users/macbookair/Desktop/Angular/02-spa/src/assets/img')
+        cb(null, config.src + 'assets/img')
     },
     // By default, multer removes file extensions so let's add them back
     filename: function(req, file, cb) {

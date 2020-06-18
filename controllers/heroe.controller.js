@@ -1,6 +1,7 @@
 'use strict'
 
 const Heroe = require('./../models/heroe')
+const config = require('./../config')
 
 function GetHeroes(req, res, next) {
 
@@ -24,7 +25,7 @@ function GetHeroeById(req, res) {
 
 function CreateHeroe(req, res) {
     let heroe = new Heroe(req.body)
-    heroe.img = req.file.path.split('/Users/macbookair/Desktop/Angular/02-spa/src/').join('')
+    heroe.img = req.file.path.split(config.src).join('')
     heroe.save((err, heroeSave) => {
         if (err) return res.status(500).send({ message: `ocurrió un error al realizar la petición` })
         res.status(200).send({ heroe: heroeSave })
@@ -35,10 +36,9 @@ function UpdateHeroe(req, res) {
     let heroeId = req.body.id
     let update = req.body
 
-    update.img = req.file.path.split('/Users/macbookair/Desktop/Angular/02-spa/src/').join('')
+    update.img = req.file.path.split(config.src).join('')
 
     console.log(req)
-        //heroe.img = req.file.path.split('/Users/macbookair/Desktop/Angular/02-spa/src/').join('')
     Heroe.findByIdAndUpdate(heroeId, update, { new: true }, (err, result) => {
         if (err) return res.status(500).send({ message: `ocurrió un error al realizar la petición` })
         res.status(200).send({ heroe: result })
