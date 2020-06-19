@@ -25,6 +25,8 @@ function GetHeroeById(req, res) {
 
 function CreateHeroe(req, res) {
     let heroe = new Heroe(req.body)
+    console.log(req)
+    console.log(req.file)
     heroe.img = req.file.path.split(config.src).join('')
     heroe.save((err, heroeSave) => {
         if (err) return res.status(500).send({ message: `ocurrió un error al realizar la petición` })
@@ -35,9 +37,7 @@ function CreateHeroe(req, res) {
 function UpdateHeroe(req, res) {
     let heroeId = req.body.id
     let update = req.body
-
     update.img = req.file.path.split(config.src).join('')
-
     console.log(req)
     Heroe.findByIdAndUpdate(heroeId, update, { new: true }, (err, result) => {
         if (err) return res.status(500).send({ message: `ocurrió un error al realizar la petición` })
