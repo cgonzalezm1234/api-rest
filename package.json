@@ -4,8 +4,7 @@
     "description": "Proyecto de API Restful con Node.js y Express",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "nodemon ./index.js"
     },
     "author": "Camilo González",
     "license": "MIT",
