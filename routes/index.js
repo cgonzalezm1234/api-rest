@@ -4,7 +4,6 @@ const express = require('express')
 const config = require('./../config')
 const api = express.Router()
 const heroeController = require('./../controllers/heroe.controller')
-const path = require('path')
 const multer = require('multer')
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
